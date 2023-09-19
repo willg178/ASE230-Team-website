@@ -16,19 +16,20 @@ $team = [
         'role' => 'Yoshi',
         'image' => 'assets\images\Beeg_Yoshi.webp',
     ],
+	$name = $team[$id]['name']
 ];
 ?>
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title><?php </title>
+    <title></title>
     
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Your name's resume">
-    <meta name="author" content="Your name">    
+    <meta name="author" content=<?php $team[$id]['name'] ?>    
     <link rel="shortcut icon" href="favicon.ico"> 
     
     <!-- Google Font -->
@@ -56,7 +57,7 @@ $team = [
 				    <div class="col">
 					    <div class="row p-4 justify-content-center justify-content-md-between">
 						    <div class="primary-info col-auto">
-							    <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">Your name</h1>
+							    <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><?php echo $name ?></h1>
 							    <div class="title mb-3">Your desired job title</div>
 							    <ul class="list-unstyled">
 								    <li class="mb-2"><a class="text-link" href="#"><i class="far fa-envelope fa-fw me-2" data-fa-transform="grow-3"></i>your@email.com</a></li>

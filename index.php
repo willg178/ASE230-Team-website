@@ -54,7 +54,6 @@ $team = [
                 $template = str_replace('Member role', $team[$id]['role'], $template);
                 $template = str_replace('assets/images/profile.jpg', $team[$id]['image'], $template);
 
-                // Generate the detail page URL
                 $detailPageURL = "detail.php?id=$id";
                 $template = str_replace("LINK_TO_MEMBER_PAGE", $detailPageURL, $template);
 
