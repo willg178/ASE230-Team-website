@@ -16,7 +16,6 @@ $team = [
         'role' => 'Yoshi',
         'image' => 'assets\images\Beeg_Yoshi.webp',
     ],
-	$name = $team[$id]['name']
 ];
 ?>
 <!DOCTYPE html>
@@ -29,7 +28,7 @@ $team = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Your name's resume">
-    <meta name="author" content=<?php $team[$id]['name'] ?>    
+    <meta name="author" content="Your name" ?>    
     <link rel="shortcut icon" href="favicon.ico"> 
     
     <!-- Google Font -->
@@ -52,13 +51,13 @@ $team = [
 		    <header class="resume-header pt-4 pt-md-0">
 			    <div class="row">
 				    <div class="col-block col-md-auto resume-picture-holder text-center text-md-start">
-				        <img class="picture" src="assets/images/profile.jpg" alt="">
+				        <img class="picture" src=<?php echo $team[$id]['image'] ?> alt="">
 				    </div><!--//col-->
 				    <div class="col">
 					    <div class="row p-4 justify-content-center justify-content-md-between">
 						    <div class="primary-info col-auto">
-							    <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><?php echo $name ?></h1>
-							    <div class="title mb-3">Your desired job title</div>
+							    <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><?php echo $team[$id]['name'] ?></h1>
+							    <div class="title mb-3"><?php echo $team[$id]['role'] ?></div>
 							    <ul class="list-unstyled">
 								    <li class="mb-2"><a class="text-link" href="#"><i class="far fa-envelope fa-fw me-2" data-fa-transform="grow-3"></i>your@email.com</a></li>
 								    <li><a class="text-link" href="#"><i class="fas fa-mobile-alt fa-fw me-2" data-fa-transform="grow-6"></i>0123 456 78900</a></li>
