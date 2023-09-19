@@ -5,18 +5,31 @@ $team = [
         'name' => 'Will Grund',
         'role' => 'Software Engineer',
         'image' => 'assets\images\profile.jpg',
+        'dob' =>  '2002-06-27'
     ],
     2 => [
         'name' => 'Master Chief',
         'role' => 'Spartan',
         'image' => 'assets\images\halo_3_DMBwcnr.webp',
+        'dob' =>  '2511-03-07'
     ],
 	3 => [
         'name' => 'Beeg Yoshi',
         'role' => 'Yoshi',
         'image' => 'assets\images\Beeg_Yoshi.webp',
+        'dob' =>  '2019-01-26'
     ],
 ];
+function calculateAge($dateOfBirth) {
+    $dob = new DateTime($dateOfBirth);
+    $currentDate = new DateTime();
+    $ageInterval = $currentDate->diff($dob);
+    if ($currentDate < $dob) {
+        return -$ageInterval->y;
+    } else {
+        return $ageInterval->y;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -39,8 +52,6 @@ $team = [
        
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/pillar-1.css">
-
-
 </head> 
 
 <body>
@@ -58,6 +69,7 @@ $team = [
 						    <div class="primary-info col-auto">
 							    <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase"><?php echo $team[$id]['name'] ?></h1>
 							    <div class="title mb-3"><?php echo $team[$id]['role'] ?></div>
+								<div class="">Age: <?php echo calculateAge($team[$id]['dob'])?></div>
 							    <ul class="list-unstyled">
 								    <li class="mb-2"><a class="text-link" href="#"><i class="far fa-envelope fa-fw me-2" data-fa-transform="grow-3"></i>your@email.com</a></li>
 								    <li><a class="text-link" href="#"><i class="fas fa-mobile-alt fa-fw me-2" data-fa-transform="grow-6"></i>0123 456 78900</a></li>

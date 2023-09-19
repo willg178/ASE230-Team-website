@@ -4,18 +4,32 @@ $team = [
         'name' => 'Will Grund',
         'role' => 'Software Engineer',
         'image' => 'assets\images\profile.jpg',
+        'dob' =>  '2002-06-27'
     ],
     2 => [
         'name' => 'Master Chief',
         'role' => 'Spartan',
         'image' => 'assets\images\halo_3_DMBwcnr.webp',
+        'dob' =>  '2511-03-07'
     ],
 	3 => [
         'name' => 'Beeg Yoshi',
         'role' => 'Yoshi',
         'image' => 'assets\images\Beeg_Yoshi.webp',
+        'dob' =>  '2019-01-26'
     ],
 ];
+
+function calculateAge($dateOfBirth) {
+    $dob = new DateTime($dateOfBirth);
+    $currentDate = new DateTime();
+    $ageInterval = $currentDate->diff($dob);
+    if ($currentDate < $dob) {
+        return -$ageInterval->y;
+    } else {
+        return $ageInterval->y;
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -53,6 +67,7 @@ $team = [
                 $template = str_replace('Member name', $team[$id]['name'], $template);
                 $template = str_replace('Member role', $team[$id]['role'], $template);
                 $template = str_replace('assets/images/profile.jpg', $team[$id]['image'], $template);
+                $template = str_replace('Age', calculateAge($team[$id]['dob']), $template);
 
                 $detailPageURL = "detail.php?id=$id";
                 $template = str_replace("LINK_TO_MEMBER_PAGE", $detailPageURL, $template);
